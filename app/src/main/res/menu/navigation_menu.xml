@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:title="@string/inactive_employees"
+            android:icon="@drawable/ic_group">
+        </item>
+        <item
+            android:id="@+id/item2"
+            android:title="@string/attendance_report"
+            android:icon="@drawable/ic_grid_">
+        </item>
+        <item
+            android:id="@+id/item3"
+            android:title="@string/overtime_details"
+            android:icon="@drawable/ic_history">
+        </item>
+        <item android:id="@+id/item4"
+            android:title="@string/employee_remarks"
+            android:icon="@drawable/ic_message"/>
+        <item android:id="@+id/item5"
+            android:title="@string/send_feedback"
+            android:icon="@drawable/ic_textsms"/>
+    </group>
+
+    <!--    <group>-->
+
+    <!--        <item android:id="@+id/nav_share"-->
+    <!--            android:title="Share App"/>-->
+    <!--        <item android:id="nav_rate"-->
+    <!--            android:title="Rate Us"/>-->
+    <!--        <item android:id="@+id/nav_check"-->
+    <!--            android:title="Check updates"/>-->
+    <!--        <item android:id="@+id/nav_privacy"-->
+    <!--            android:title="Privacy Policy"/>-->
+
+    <!--    </group>-->
+</menu>

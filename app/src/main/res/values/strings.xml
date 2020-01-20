@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Complex</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="_0_employees">0 Employees</string>
+    <string name="texti">No Employee found, Please add the employees</string>
+    <string name="login_sign_up">Login . Sign Up</string>
+    <string name="inactive_employees">Inactive Employees</string>
+    <string name="attendance_report">Attendance Report</string>
+    <string name="overtime_details">Overtime Details</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="employee_remarks">Employee Remarks</string>
+    <string name="mark_today_s_attendance">MARK TODAY\'S ATTENDANCE</string>
+    <string name="info2">Payment Type(Monthly/Daily)</string>
+    <string name="m_wages">Monthly Wages</string>
+    <string name="allowed_leaves_for_a_month">Allowed leaves for a month</string>
+    <string name="info1">Payment Information</string>
+    <string name="name">Employee Name</string>
+    <string name="number">Enter/Pick Phone number</string>
+    <string name="info">Personal Information</string>
+    <string name="employee_role">Employee Role</string>
+    <string name="monthly">Monthly Salary</string>
+    <string name="weekly">Weekly</string>
+    <string name="d_wages">Daily Wages</string>
+    <string name="over_time">Over Time per Day</string>
+    <string name="save">Save</string>
+    <string-array name="job_title">
+        <item>Select from list</item>
+        <item>Maid</item>
+        <item>Employee</item>
+        <item>Sweeper</item>
+        <item>Cook</item>
+        <item>Other</item>
+    </string-array>
+    <string name="enter_your_ten_digit_mobile_number">Enter your Ten digit mobile number</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="welcome_user">Welcome User !</string>
+    <string name="verify_your_number">Verify Your Number</string>
+    <string name="enter_mobile_number">Enter mobile number</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="num">123456</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="working">Working..</string>
+    <string name="msg2">Please enter your Country Code and Phone number for verification</string>
+    <string name="verified">Verified!</string>
+</resources>

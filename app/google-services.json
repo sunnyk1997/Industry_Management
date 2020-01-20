@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185988950794",
+    "firebase_url": "https://industry-management-b305f.firebaseio.com",
+    "project_id": "industry-management-b305f",
+    "storage_bucket": "industry-management-b305f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185988950794:android:ee3b1e9d7fa9cc4f8d68f3",
+        "android_client_info": {
+          "package_name": "com.desirestodesigns.complexion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185988950794-i1kb0hd6vqj56sh6g7tg6jvviacohv7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByCeNKJhQ_-r2fwQiE8vNHh7WlH9ags48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185988950794-i1kb0hd6vqj56sh6g7tg6jvviacohv7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
