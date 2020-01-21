@@ -30,13 +30,14 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "TAG";
-    int i;
+    int i,employeesCount;
     TextView mEmpCount,mInfo;
     Toolbar toolbar;
     DrawerLayout dl;
@@ -46,10 +47,11 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Employee employee;
     ArrayList<Employee> employeeArrayList = new ArrayList<>();
-    ArrayList<Employee> countArrayList = new ArrayList<>();
+    ArrayList<EmployeeAttendance> attendanceArrayList= new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
     FirebaseFirestore firebaseFirestore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,23 +60,22 @@ public class MainActivity extends AppCompatActivity {
         initializeUi();
         toolBar();
         readFromDb();
-        //count(countArrayList);
         recyclerMethod(employeeArrayList);
         Log.i(TAG, "onCreate Method Completed");
     }
 
-//    private void count(ArrayList<Employee> countArrayList) {
-//
-//        int i = countArrayList.size();
-//        //        int i = employeeArrayList.size();
-//        Log.i(TAG, "count thing "+ i);
-//        Log.i(TAG, "count Method is invoked");
-//        if(i==1) mEmpCount.setText(i+" Employee");
-//        if (i !=0){
-//            mInfo.setText("");
-//            mEmpCount.setText(i+" Employees");
-//        }
-//    }
+    private void count(ArrayList<Employee> countArrayList) {
+
+        int i = countArrayList.size();
+        //        int i = employeeArrayList.size();
+        Log.i(TAG, "count thing "+ i);
+        Log.i(TAG, "count Method is invoked");
+        if(i==1) mEmpCount.setText(i+" Employee");
+        if (i !=0){
+            mInfo.setText("");
+            mEmpCount.setText(i+" Employees");
+        }
+    }
 
     private void readFromDb(){
         Log.i(TAG, "readFromDb Method Invoked");
@@ -89,10 +90,11 @@ public class MainActivity extends AppCompatActivity {
                             for(DocumentSnapshot doc : eList){
                              Employee employee = doc.toObject(Employee.class);
                              employeeArrayList.add(employee);
-                             countArrayList.add(employee);
+                             //countArrayList.add(employee);
                             }
                             //notify Adapter for Updated Data
                             adapter.notifyDataSetChanged();
+                            count(employeeArrayList);
                         }
                     }
                 });
@@ -179,9 +181,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
+//        attendanceArrayList = arrayList;
         adapter = new MyAdapter(arrayList);
         recyclerView.setAdapter(adapter);
         Log.i(TAG, "recyclerMethod is Completed ");
+
     }
 
     //THE FOLLOWING CODE MUST BE INCLUDED FOR THE NAVIGATION DRAWER TO WORK
@@ -233,5 +237,11 @@ public class MainActivity extends AppCompatActivity {
         sendToDb();
     }
 
+    public void markAttendance(View view) {
+        Intent i = new Intent(this,Attendance.class);
+        Log.i(TAG, "Attendance class is called using Intent");
+        startActivity(i);
+
+    }
 }
 

@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/SplashScreen">
         <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".Attendance"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>

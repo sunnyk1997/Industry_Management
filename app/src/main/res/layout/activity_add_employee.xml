@@ -60,18 +60,13 @@
                     android:singleLine="true"
                     android:layout_weight="1"
                     android:inputType="number"/>
-                <ImageButton
-                    android:id="@+id/imgb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:layout_gravity="center"
-                    android:onClick="onClickOpenContacts"
-                    android:src="@drawable/ic_perm_contact_calendar_black_24dp"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"/>
-
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_designation"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"/>
             <Spinner
                 android:id="@+id/spinner1"
                 android:layout_width="match_parent"
@@ -110,12 +105,12 @@
                 android:layout_height="wrap_content"
                 android:layoutDirection="rtl">
                 <ToggleButton
+                    android:id="@+id/togglemd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
                     android:textOff="@string/monthly"
-                    android:textOn="@string/weekly"/>
+                    android:textOn="@string/daily"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -131,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/m_wages"
                 android:text="0"
+                android:visibility="visible"
                 android:inputType="number"
                 android:singleLine="true"
                 />
@@ -139,8 +135,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/d_wages"
-                android:inputType="number"
                 android:text="0"
+                android:inputType="number"
+                android:visibility="gone"
                 android:singleLine="true"
                 />
             <EditText

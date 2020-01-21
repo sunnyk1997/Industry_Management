@@ -63,6 +63,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
+            android:onClick="markAttendance"
             android:background="@color/orange"
             android:layout_marginTop="10dp"
             android:text="@string/mark_today_s_attendance"/>

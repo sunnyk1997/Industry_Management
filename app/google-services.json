@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "185988950794-aqio8eigno993bj09ugbtu2hkqvroug3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.desirestodesigns.complexion",
+            "certificate_hash": "ad8c4d1a4364545b68cb8e059226652ecd85c077"
+          }
+        },
+        {
           "client_id": "185988950794-i1kb0hd6vqj56sh6g7tg6jvviacohv7h.apps.googleusercontent.com",
           "client_type": 3
         }

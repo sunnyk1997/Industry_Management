@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Attendance">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        app:title="@string/marke"
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_below="@+id/toolbar3"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:text="@string/sample"
+        android:textAlignment="center"
+        android:background="@color/Lavender_mist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/date_text"
+        android:id="@+id/mrv"
+        android:padding="4dp"
+        android:scrollbars="vertical"
+        android:background="@color/lavender"
+        />
+</RelativeLayout>

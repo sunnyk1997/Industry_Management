@@ -20,16 +20,16 @@
     <string name="info">Personal Information</string>
     <string name="employee_role">Employee Role</string>
     <string name="monthly">Monthly Salary</string>
-    <string name="weekly">Weekly</string>
-    <string name="d_wages">Daily Wages</string>
+    <string name="daily">Daily Wage</string>
+    <string name="d_wages">Daily Wage</string>
     <string name="over_time">Over Time per Day</string>
     <string name="save">Save</string>
     <string-array name="job_title">
-        <item>Select from list</item>
-        <item>Maid</item>
+        <item>Driver</item>
         <item>Employee</item>
         <item>Sweeper</item>
         <item>Cook</item>
+        <item>Operator</item>
         <item>Other</item>
     </string-array>
     <string name="enter_your_ten_digit_mobile_number">Enter your Ten digit mobile number</string>
@@ -44,4 +44,11 @@
     <string name="working">Working..</string>
     <string name="msg2">Please enter your Country Code and Phone number for verification</string>
     <string name="verified">Verified!</string>
+    <string name="choose_designation">Choose designation</string>
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="one_and_half">1.5</string>
+    <string name="two">2</string>
+    <string name="sample">Sample</string>
+    <string name="marke">Mark Employee Attendance</string>
 </resources>

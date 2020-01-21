@@ -1,16 +1,21 @@
 package com.desirestodesigns.complexion;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private static final String TAG = "TAG";
     private ArrayList<Employee> employeeArrayList;
+//    AdapterView.OnItemClickListener itemClickListener;
 
     public MyAdapter(ArrayList<Employee> list) {
         employeeArrayList = list;
@@ -33,7 +38,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                //remove(position);
+//                itemClickListener.onItemClick(position,employee);
             }
         });
         Log.i(TAG, "onBindViewHolder method Completed");
@@ -41,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (employeeArrayList==null) {
+        if (employeeArrayList == null) {
             return 0;
         } else {
             return employeeArrayList.size();
@@ -54,7 +60,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name,desg,role;
+        public TextView name, desg, role;
+
         //declare variables which are in the RecyclerView
         public MyViewHolder(View itemView) {
             super(itemView);

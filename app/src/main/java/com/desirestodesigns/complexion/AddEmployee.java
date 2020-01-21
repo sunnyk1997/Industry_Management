@@ -9,18 +9,21 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class AddEmployee extends AppCompatActivity {
     private static final String TAG = "TAG";
     Toolbar toolbar;
     EditText meName, mpNo, mrole, mSalary, mdWages, moTime, mleaves;
     Spinner mdesg;
-    ImageButton mimg;
+    ToggleButton mSalType;
     Button mbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +53,37 @@ public class AddEmployee extends AppCompatActivity {
         }
 
     private void uiMethods() {
-
-//        textView = findViewById(R.id.tv1);
         meName = findViewById(R.id.ed1);
         mpNo = findViewById(R.id.ed2);
-        mimg = findViewById(R.id.imgb);
         mdesg = findViewById(R.id.spinner1);
         mrole = findViewById(R.id.ed3);
+        mSalType = findViewById(R.id.togglemd);
         mSalary = findViewById(R.id.ed4);
         mdWages = findViewById(R.id.ed5);
         moTime = findViewById(R.id.ed6);
         mleaves = findViewById(R.id.ed7);
         mbtn = findViewById(R.id.btn2);
+
+        mSalType.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    // The toggle is enabled
+                    //make the daily wage field to visible and monthly field to invisible state
+                    mSalary.setVisibility(View.GONE);
+                    mleaves.setVisibility(View.GONE);
+                    mdWages.setVisibility(View.VISIBLE);
+
+                } else {
+                    // The toggle is disabled
+                    mSalary.setVisibility(View.VISIBLE);
+                    mleaves.setVisibility(View.VISIBLE);
+                    mdWages.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
         Log.i(TAG, "uiInitialization method Completed in Activity2");
     }
     public void saveButton(View view) {
@@ -74,8 +96,6 @@ public class AddEmployee extends AppCompatActivity {
         String dwage = mdWages.getText().toString();
         String overTime = moTime.getText().toString();
         String absent = mleaves.getText().toString();
-
-
         if((!TextUtils.isEmpty(ename))&& (!TextUtils.isEmpty(epno))&& (!TextUtils.isEmpty(designation))
 
 //                &&(TextUtils.isEmpty(msal)|| TextUtils.isEmpty(dwage))
