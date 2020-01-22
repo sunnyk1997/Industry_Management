@@ -51,4 +51,11 @@
     <string name="two">2</string>
     <string name="sample">Sample</string>
     <string name="marke">Mark Employee Attendance</string>
+    <string name="enter_category">Enter Category</string>
+    <string name="category">Category</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="economics">Economics</string>
+    <string name="select_">Select Income/Expenses</string>
+    <string name="i_e">Income/Expenses</string>
+    <string name="desc">Description</string>
 </resources>

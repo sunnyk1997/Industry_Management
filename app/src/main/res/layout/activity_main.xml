@@ -57,6 +57,22 @@
             app:srcCompat="@drawable/ic_person_add"
             android:focusable="true" />
         <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn1"
+            android:onClick="categoryActivity"
+            android:text="@string/category"/>
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn1"
+            android:layout_toEndOf="@+id/btn4"
+            android:layout_margin="5dp"
+            android:onClick="economicsActivity"
+            android:text="@string/economics"/>
+        <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

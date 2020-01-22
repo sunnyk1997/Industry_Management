@@ -37,7 +37,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "TAG";
-    int i,employeesCount;
     TextView mEmpCount,mInfo;
     Toolbar toolbar;
     DrawerLayout dl;
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Employee employee;
     ArrayList<Employee> employeeArrayList = new ArrayList<>();
-    ArrayList<EmployeeAttendance> attendanceArrayList= new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
     FirebaseFirestore firebaseFirestore;
@@ -108,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(MainActivity.this, "Data successfully added", Toast.LENGTH_SHORT).show();
+                        readFromDb();
                     }
                 });
     }
@@ -185,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(arrayList);
         recyclerView.setAdapter(adapter);
         Log.i(TAG, "recyclerMethod is Completed ");
-
     }
 
     //THE FOLLOWING CODE MUST BE INCLUDED FOR THE NAVIGATION DRAWER TO WORK
@@ -239,9 +237,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void markAttendance(View view) {
         Intent i = new Intent(this,Attendance.class);
-        Log.i(TAG, "Attendance class is called using Intent");
         startActivity(i);
+        Log.i(TAG, "Attendance class is called using Intent");
+    }
 
+    public void categoryActivity(View view) {
+        Intent i = new Intent(this,Categories.class);
+        startActivity(i);
+        Log.i(TAG, "Category activity is called using Intent");
+    }
+
+    public void economicsActivity(View view) {
+        Intent i = new Intent(this,Economics.class);
+        startActivity(i);
+        Log.i(TAG, "Category activity is called using Intent");
     }
 }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Categories">
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar4"
+    app:title="Add Categories"
+    app:titleTextColor="@color/white"
+    android:background="@color/orange"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/toolbar4"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_add"
+        android:focusable="true" />
+
+</RelativeLayout>
+<!--<ImageButton
+    android:id="@+id/imgb3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:background="@color/orange"
+    android:layout_margin="7dp"
+    android:layout_alignParentBottom="true"
+    android:src="@drawable/ic_add"/>-->

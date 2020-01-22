@@ -2,7 +2,7 @@ package com.desirestodesigns.complexion;
 
 public class Employee {
     private  String empName,empDesignation,empRole;
-    private  int image,dWage,ot,leaves;
+    private  int dWage,ot,leaves;
     private long monSal,phoneNum;
     public String getEmpName() {
         return empName;
@@ -34,14 +34,6 @@ public class Employee {
 
     public void setPhoneNum(long phoneNum) {
         this.phoneNum = phoneNum;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
     }
 
     public long getMonSal() {
@@ -81,7 +73,6 @@ public class Employee {
         this.empDesignation = empDesignation;
         this.empRole = empRole;
         this.phoneNum = phoneNum;
-        this.image = image;
         this.monSal = monSal;
         this.dWage = dWage;
         this.ot = ot;

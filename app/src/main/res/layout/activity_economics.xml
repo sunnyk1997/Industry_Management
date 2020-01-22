@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Lavender_mist"
+    tools:context=".Economics">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar5"
+        app:title="@string/i_e"
+        app:titleTextColor="@color/white"
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <TextView
+        android:layout_below="@+id/toolbar5"
+        android:id="@+id/econo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:text="@string/select_"/>
+    <ToggleButton
+        android:id="@+id/toggleie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/econo_text"
+        android:paddingRight="20dp"
+        android:textOff="Income"
+        android:textOn="Expense"/>
+    <EditText
+        android:id="@+id/amount"
+        android:layout_below="@+id/toggleie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Amount"/>
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amount"/>
+
+    <EditText
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner2"
+        android:hint="@string/desc"
+        android:inputType="textMultiLine"/>
+
+</RelativeLayout>
