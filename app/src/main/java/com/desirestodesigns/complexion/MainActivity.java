@@ -32,7 +32,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Array;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -228,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
         employee.setdWage(Integer.parseInt(wage));
         employee.setOt(Integer.parseInt(ot));
         employee.setLeaves(Integer.parseInt(absent));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
+        String currentDate = simpleDateFormat.format(new Date());
+        Log.d("MainActivity", "Current Timestamp: " + currentDate);
+        employee.setDate(currentDate);
         //Add the employee object to the employeeArrayList
         //employeeArrayList.add(employee);
         //Notify the Adapter that new data is available

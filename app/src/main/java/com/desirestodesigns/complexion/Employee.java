@@ -1,9 +1,22 @@
 package com.desirestodesigns.complexion;
 
 public class Employee {
-    private  String empName,empDesignation,empRole;
+    private  String empName;
+    private String empDesignation;
+    private String empRole;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private String date;
     private  int dWage,ot,leaves;
     private long monSal,phoneNum;
+
     public String getEmpName() {
         return empName;
     }
