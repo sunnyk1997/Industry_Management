@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerDetails">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        app:title="Customer Details"
+        app:titleTextColor="@color/white"
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <TextView
+        android:id="@+id/customers"
+        android:layout_below="@id/toolbar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/_0customers"
+        android:layout_margin="5dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/customers"
+        android:padding="4dp"
+        android:scrollbars="vertical"
+        android:background="@color/Lavender_mist"/>
+    <TextView
+        android:id="@+id/custinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/info3"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/ic_add"
+        android:focusable="true"
+        android:onClick="onClickSwitchActivityCustomer"/>
+
+</RelativeLayout>

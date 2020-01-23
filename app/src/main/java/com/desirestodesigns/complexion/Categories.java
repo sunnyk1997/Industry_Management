@@ -22,7 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categories extends AppCompatActivity implements cDialog.CategoryDialogListener {
+public class Categories extends AppCompatActivity implements CategoryDialog.CategoryDialogListener {
     private static final String TAG = "TAG";
     Toolbar toolbar;
     TextView tv;
@@ -125,8 +125,8 @@ public class Categories extends AppCompatActivity implements cDialog.CategoryDia
     }
 
     private void openDialog() {
-        cDialog cDialog = new cDialog();
-        cDialog.show(getSupportFragmentManager(), "C Dialog");
+        CategoryDialog categoryDialog = new CategoryDialog();
+        categoryDialog.show(getSupportFragmentManager(), "C Dialog");
     }
 
     String cat, catName;
@@ -147,5 +147,6 @@ public class Categories extends AppCompatActivity implements cDialog.CategoryDia
         category.setCategoryName(catName);
         sendToDb();
     }
+
 
 }

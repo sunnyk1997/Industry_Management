@@ -1,10 +1,17 @@
 package com.desirestodesigns.complexion;
 
 public class Employee {
+    private String documentId;
     private  String empName;
     private String empDesignation;
     private String empRole;
+    public String getDocumentId() {
+        return documentId;
+    }
 
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
     public String getDate() {
         return date;
     }

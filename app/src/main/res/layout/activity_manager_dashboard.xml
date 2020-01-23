@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManagerDashboard">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar7"
+        app:title="Manager Dashboard"
+        android:background="@color/orange"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+    <TextView
+        android:id="@+id/current_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/current_month"
+        android:layout_below="@+id/toolbar7"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/income"
+        android:layout_below="@id/current_month"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/income"/>
+
+    <TextView
+        android:id="@+id/expense"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/income"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:text="@string/expense"/>
+
+    <TextView
+        android:id="@+id/bills"
+        android:layout_below="@id/expense"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pending_bills"/>
+
+
+    <TextView
+        android:id="@+id/profit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bills"
+       android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:text="@string/profi_loss"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</RelativeLayout>

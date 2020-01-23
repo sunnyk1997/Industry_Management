@@ -63,4 +63,20 @@
     <string name="income">Income</string>
     <string name="expense">Expense</string>
     <string name="enter_amount">Enter Amount</string>
+    <string name="customer_name">Enter Customer Name</string>
+    <string name="enter_customer_id">Enter Customer Id</string>
+    <string name="enter_customer_geo_location">Enter Customer Geo location</string>
+    <string name="customer_manager">Enter Customer Manager</string>
+    <string name="customer_supervisor_name">Customer Supervisor Name</string>
+    <string name="supervisor_number">Supervisor Number</string>
+    <string name="manager_number">Manager Number</string>
+    <string name="customer_description">Customer Description</string>
+    <string name="save2">SAVE</string>
+    <string name="_0customers">0Customers</string>
+    <string name="info3">No Customer found, Please add the customers</string>
+    <string name="customer">customer</string>
+    <string name="current_month">Current Month</string>
+
+    <string name="pending_bills">Pending Bills</string>
+    <string name="profi_loss">Profit/Loss</string>
 </resources>

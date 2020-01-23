@@ -52,6 +52,8 @@ public class AddEmployee extends AppCompatActivity {
             Log.i(TAG, "toolBar method Completed");
         }
 
+
+
     private void uiMethods() {
         meName = findViewById(R.id.ed1);
         mpNo = findViewById(R.id.ed2);
@@ -73,12 +75,16 @@ public class AddEmployee extends AppCompatActivity {
                     mSalary.setVisibility(View.GONE);
                     mleaves.setVisibility(View.GONE);
                     mdWages.setVisibility(View.VISIBLE);
+                    mSalary.setText("0");
+                    mdWages.setText("");
 
                 } else {
                     // The toggle is disabled
                     mSalary.setVisibility(View.VISIBLE);
                     mleaves.setVisibility(View.VISIBLE);
                     mdWages.setVisibility(View.GONE);
+                    mdWages.setText("0");
+                    mSalary.setText("");
                 }
             }
         });

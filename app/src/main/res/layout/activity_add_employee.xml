@@ -125,7 +125,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/m_wages"
-                android:text="0"
                 android:visibility="visible"
                 android:inputType="number"
                 android:singleLine="true"
@@ -135,8 +134,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/d_wages"
-                android:text="0"
                 android:inputType="number"
+                android:text="0"
                 android:visibility="gone"
                 android:singleLine="true"
                 />

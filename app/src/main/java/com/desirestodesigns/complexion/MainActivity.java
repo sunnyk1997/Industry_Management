@@ -17,11 +17,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -37,9 +39,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DeleteDialog.DeleteDialogListener {
     private static final String TAG = "TAG";
-    TextView mEmpCount,mInfo;
+    TextView mEmpCount, mInfo;
     Toolbar toolbar;
     DrawerLayout dl;
     ActionBarDrawerToggle abdt;
@@ -47,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter adapter;
     RecyclerView recyclerView;
     Employee employee;
+    int rPosition;
+    public String docId;
     ArrayList<Employee> employeeArrayList = new ArrayList<>();
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
-    FirebaseFirestore firebaseFirestore;
+    private FirebaseFirestore firebaseFirestore;
+    private CollectionReference collectionReference;
 
 
     @Override
@@ -68,29 +73,38 @@ public class MainActivity extends AppCompatActivity {
 
         int i = countArrayList.size();
         //        int i = employeeArrayList.size();
-        Log.i(TAG, "count thing "+ i);
+        Log.i(TAG, "count thing " + i);
         Log.i(TAG, "count Method is invoked");
-        if(i==1) mEmpCount.setText(i+" Employee");
-        if (i !=0){
+        if (i == 1) mEmpCount.setText(i + " Employee");
+        if (i != 0) {
             mInfo.setText("");
-            mEmpCount.setText(i+" Employees");
+            mEmpCount.setText(i + " Employees");
         }
     }
 
-    private void readFromDb(){
-        Log.i(TAG, "readFromDb Method Invoked");
-        firebaseFirestore.collection("Employees")
+    private void readFromDb() {
+        collectionReference.orderBy("empName", Query.Direction.ASCENDING)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if (!queryDocumentSnapshots.isEmpty()) {
                             employeeArrayList.clear();
-                            List<DocumentSnapshot> eList = queryDocumentSnapshots.getDocuments();
-                            for(DocumentSnapshot doc : eList){
-                             Employee employee = doc.toObject(Employee.class);
-                             employeeArrayList.add(employee);
-                             //countArrayList.add(employee);
+                            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                Employee employee = documentSnapshot.toObject(Employee.class);
+                                //Getting document id from database
+                                employee.setDocumentId(documentSnapshot.getId());
+                                //Setting document id to String variable
+                                docId = employee.getDocumentId();
+                                String name = employee.getEmpName();
+                                String desg = employee.getEmpDesignation();
+                                String role = employee.getEmpRole();
+                                employee.setEmpName(name);
+                                employee.setEmpDesignation(desg);
+                                employee.setEmpRole(role);
+                                Log.i(TAG, "sendToDb method is invoked" + docId);
+
+                                employeeArrayList.add(employee);
                             }
                             //notify Adapter for Updated Data
                             adapter.notifyDataSetChanged();
@@ -99,18 +113,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
     private void sendToDb() {
         Log.i(TAG, "sendToDb method is invoked");
-        firebaseFirestore.collection("Employees")
-                .document()
-                .set(employee)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(MainActivity.this, "Data successfully added", Toast.LENGTH_SHORT).show();
-                        readFromDb();
-                    }
-                });
+        collectionReference.add(employee).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(MainActivity.this, "Data successfully added", Toast.LENGTH_SHORT).show();
+                readFromDb();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity.this, "Issue while adding data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     //If the user isn't logged in then they will be redirected to login activity
@@ -124,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(loginIntent);
             finish();
         }
+
     }
 
     //Initializes Ui elements
@@ -136,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         nav_view = findViewById(R.id.nav_view);
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        collectionReference = firebaseFirestore.collection("Employees");
         mCurrentUser = mAuth.getCurrentUser();
         Log.i(TAG, "initializationUi method Completed in Activity1");
     }
@@ -176,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Toolbar method Completed");
     }
 
+
     //METHOD TO IMPLEMENT RECYCLERMETHOD
     private void recyclerMethod(ArrayList<Employee> arrayList) {
         recyclerView = findViewById(R.id.rv);
@@ -185,8 +205,35 @@ public class MainActivity extends AppCompatActivity {
 //        attendanceArrayList = arrayList;
         adapter = new MyAdapter(arrayList);
         recyclerView.setAdapter(adapter);
+        //Delete using image button in recycler view
+        adapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+                rPosition=position;
+            }
+        });
         Log.i(TAG, "recyclerMethod is Completed ");
     }
+
+    private void removeItem(int position) {
+        openDialog();
+    }
+
+    private void openDialog() {
+        DeleteDialog deleteDialog = new DeleteDialog();
+        deleteDialog.show(getSupportFragmentManager(), "delete dialog");
+    }
+
+    @Override
+    public void onYesClicked() {
+        employeeArrayList.remove(rPosition);
+        adapter.notifyItemChanged(rPosition);
+        Toast.makeText(this, "Card Deleted", Toast.LENGTH_SHORT).show();
+
+    }
+
+
 
     //THE FOLLOWING CODE MUST BE INCLUDED FOR THE NAVIGATION DRAWER TO WORK
     @Override
@@ -242,21 +289,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void markAttendance(View view) {
-        Intent i = new Intent(this,Attendance.class);
+        Intent i = new Intent(this, Attendance.class);
         startActivity(i);
         Log.i(TAG, "Attendance class is called using Intent");
     }
 
     public void categoryActivity(View view) {
-        Intent i = new Intent(this,Categories.class);
+        Intent i = new Intent(this, Categories.class);
         startActivity(i);
         Log.i(TAG, "Category activity is called using Intent");
     }
 
     public void economicsActivity(View view) {
-        Intent i = new Intent(this,Economics.class);
+        Intent i = new Intent(this, Economics.class);
         startActivity(i);
         Log.i(TAG, "Category activity is called using Intent");
     }
+
+    public void customerDetails(View view) {
+        Intent i = new Intent(MainActivity.this, CustomerDetails.class);
+        startActivity(i);
+        Log.i(TAG, "Category activity is called using Intent");
+    }
+
+
 }
 

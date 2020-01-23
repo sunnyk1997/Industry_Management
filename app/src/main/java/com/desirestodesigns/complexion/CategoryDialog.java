@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-public class cDialog extends AppCompatDialogFragment {
+public class CategoryDialog extends AppCompatDialogFragment {
     private EditText category;
     private EditText cName;
     private CategoryDialogListener listener;
