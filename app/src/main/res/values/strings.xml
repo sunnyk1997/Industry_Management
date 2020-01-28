@@ -12,7 +12,7 @@
     <string name="employee_remarks">Employee Remarks</string>
     <string name="mark_today_s_attendance">MARK TODAY\'S ATTENDANCE</string>
     <string name="info2">Payment Type(Monthly/Daily)</string>
-    <string name="m_wages">Monthly Wages</string>
+    <string name="m_wages">Monthly Salary</string>
     <string name="allowed_leaves_for_a_month">Allowed leaves for a month</string>
     <string name="info1">Payment Information</string>
     <string name="name">Employee Name</string>

@@ -1,7 +1,7 @@
 package com.desirestodesigns.complexion;
 
 public class Employee {
-    private String documentId;
+    private String documentId ;
     private  String empName;
     private String empDesignation;
     private String empRole;
@@ -85,17 +85,6 @@ public class Employee {
     }
 
     public void setLeaves(int leaves) {
-        this.leaves = leaves;
-    }
-
-    public Employee(String empName, String empDesignation, String empRole, long phoneNum, int image, long monSal, int dWage, int ot, int leaves) {
-        this.empName = empName;
-        this.empDesignation = empDesignation;
-        this.empRole = empRole;
-        this.phoneNum = phoneNum;
-        this.monSal = monSal;
-        this.dWage = dWage;
-        this.ot = ot;
         this.leaves = leaves;
     }
 

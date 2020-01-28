@@ -7,7 +7,9 @@
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+        android:padding="5dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,19 +30,21 @@
             android:text="sample"
             android:id="@+id/tv4"
             android:textSize="20sp"/>
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imgb1"
             android:src="@drawable/ic_delete"
             android:layout_margin="5dp"
+            android:background="@color/white"
             android:layout_alignParentEnd="true"/>
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imgb2"
+            android:background="@color/white"
             android:src="@drawable/ic_edit"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/imgb1"/>
+            android:layout_toStartOf="@+id/imgb1"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

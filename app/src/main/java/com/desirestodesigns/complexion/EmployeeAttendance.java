@@ -35,13 +35,7 @@ public class EmployeeAttendance extends Employee {
         this.two = two;
     }
 
-    public EmployeeAttendance(String empName, String empDesignation, String empRole, long phoneNum, int image, long monSal, int dWage, int ot, int leaves, int present, int absent, double one_and_half, int two) {
-        super(empName, empDesignation, empRole, phoneNum, image, monSal, dWage, ot, leaves);
-        this.present = present;
-        this.absent = absent;
-        this.one_and_half = one_and_half;
-        this.two = two;
-    }
+
 
     public EmployeeAttendance(int present, int absent, double one_and_half, int two) {
         this.present = present;
@@ -50,9 +44,6 @@ public class EmployeeAttendance extends Employee {
         this.two = two;
     }
 
-    public EmployeeAttendance(String empName, String empDesignation, String empRole, long phoneNum, int image, long monSal, int dWage, int ot, int leaves) {
-        super(empName, empDesignation, empRole, phoneNum, image, monSal, dWage, ot, leaves);
-    }
 
     public EmployeeAttendance() {
     }
